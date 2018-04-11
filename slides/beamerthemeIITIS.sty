@@ -1,0 +1,82 @@
+\mode<presentation>
+%\usepackage{pgfcomp-version-0-65}
+\usepackage{color}
+\usepackage{tikz}
+
+\definecolor{iitis-gray}{RGB}{131,130,128}
+\definecolor{iitis-orange}{RGB}{230,120,23}
+
+%\definecolor{Ftitle}{RGB}{213,121,25}
+%\definecolor{Fitem}{RGB}{137,136,134}
+
+\setbeamercolor{frametitle}{fg = iitis-orange}
+\setbeamercolor{framesubtitle}{fg = iitis-orange}
+\setbeamercolor{title}{fg = iitis-orange}
+
+\setbeamercolor{item}{fg = iitis-gray}
+\setbeamercolor{subitem}{fg = iitis-gray}
+\setbeamercolor{subsubitem}{fg = iitis-gray}
+
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size = \Large}
+\setbeamerfont{frametitle}{size = \Large}
+\setbeamerfont{framesubtitle}{size=\normalfont\large}
+
+% iitis logos using tikz
+\def\e{0.2}
+\def\iitislogo{%
+  \resizebox{10pt}{10pt}{%
+    \begin{tikzpicture}%
+      \fill[color=iitis-gray] (2,0) rectangle (3,1);%
+      \fill[color=iitis-gray] (2,4) rectangle (3,5);%
+      \fill[color=iitis-gray] ({0-2*\e},2) rectangle ({1-2*\e},3);%
+      \fill[color=iitis-orange] ({1-\e},2) rectangle ({2-\e},3);%
+      \fill[color=iitis-orange] (2,2) rectangle (3,3);%
+      \fill[color=iitis-orange] (4,2) rectangle (5,3);%
+      \fill[color=iitis-orange] (3,3) rectangle (4,4);%
+      \fill[color=iitis-orange] (3,1) rectangle (4,2);%
+\end{tikzpicture}%
+}%
+}
+
+% two other methods
+% 1) logo - in the top left corner
+%\logo{\includegraphics[scale=0.35]{cropped-iitis_logo2-120px.png}}
+% 2) this can be used to be more precise
+%\setbeamertemplate{sidebar canvas left}{
+%	\vspace*{0.05\textheight}\hspace*{0.1\textwidth}%
+%		{\includegraphics[scale=0.35]{cropped-iitis_logo2-120px.png}}}
+
+% title frame
+\setbeamertemplate{frametitle}{\vspace*{3mm}
+    \begin{minipage}[t]{0.075\textwidth}
+      \iitislogo
+%    {\includegraphics[scale=0.2]{cropped-iitis_logo2-120px.png}}
+    \end{minipage}\hspace*{1mm}%
+    \begin{minipage}[t]{0.875\textwidth}
+        \insertframetitle
+    \end{minipage}\\[4pt]
+            \usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}
+        \insertframesubtitle
+    }
+    
+\setbeamertemplate{framesubtitle}{
+    \insertframesubtitle}
+
+% footline
+\setbeamertemplate{footline}{%
+  \usebeamerfont{structure}
+  	\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=2ex]{title in head/foot}%
+    	\hspace*{4mm} \Ffootline \hspace{4mm}
+  	\end{beamercolorbox}}
+
+\newcommand{\Ffootline}{%
+    {IITiS PAN}
+    \insertsection
+    \hfill
+    {www.iitis.pl}
+    \hfill
+  	\insertframenumber/\inserttotalframenumber}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
