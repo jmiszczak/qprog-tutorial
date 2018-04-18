@@ -23,30 +23,22 @@
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Where are quantum computers?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}
-    \begin{itemize}
-        \item D-Wave (GOTO: Andy Mason and Sheir Yarkoni, Tutorial on 
-        programming the D-Wave system) 
-        \item IBM (GOTO: Ram Du\v{s}i\'c Hren, IBM Q Experience: Hands-on 
-        workshop)
-        \item Rigetti (Quil language embedded in Python)
-        \item ProjectQ -- various backbends: simulator, resource counter, 
-        hardware (IBM Q Experience)
-    \end{itemize}
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{How to use quantum computers?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}
+\subsection{Quantum programming?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
 
   \begin{itemize}
     \item Level 0: Direct usage of quantum gates
@@ -54,20 +46,26 @@
             \item Visual manipulation of gates and circuits
             \item Multiplication of matrices and vectors 
         \end{itemize}
-    \item Level 1: Embedded language with data abstraction and classical 
-    control of quantum memory
+    \item Level 1: Direct programming of QRAM 
+%    Embedded language with data abstraction and classical 
+%    control of quantum memory
     \item Level 2: Domain specific language with data and function abstraction
         \begin{itemize}
-            \item QCL
-            \item LanQ
+            \item QCL \url{http://tph.tuwien.ac.at/~oemer/qcl.html}
+            \item LanQ \url{http://lanq.sourceforge.net/}
         \end{itemize}
   \end{itemize}
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Direct usage of quantum gates}
+\section{Direct usage of quantum gates}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quantum machine code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{itemize}
     \item IBM Q Experience: 
@@ -84,17 +82,35 @@
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{QRAM model}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Data abstraction and classical control of quantum memory}
+\section{Programming languages for QRAM}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{What is QRAM?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
+	\begin{center}
+	QRAM $\equiv$ Quantum Random Access Machine\\[12pt]
     \includegraphics[width=\textwidth]{pics/qram}
+\end{center}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Advantages of QRAM}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\begin{itemize}
+	\item data abstraction $\equiv$ allocation of quantum memory
+	\item compound quantum operations $\equiv$ functions encapsulating sequence of quantum gates or quantum primitives
+	\item classical control of quantum operations 
+\end{itemize}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Software architecture}
@@ -132,55 +148,123 @@ text centered, minimum  height=3em]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Examples}
+\section{Direct programming of QRAM}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Typical approach}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+	\begin{itemize}
+		\item embedded domain specific language $\rightarrow$ C/Python/Wolfram with library
+		\item data abstraction $\rightarrow$ allocation of classical and quantum registers based on qu(b$|$d)its
+		\item quantum functions $\rightarrow$ custom elementary gates defined by matrices or compound statements
+		\item classical control of quantum memory $\rightarrow$ by using host language
+	\end{itemize}
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
+\subsection{and its advantages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+	\begin{itemize}
+		\item easy to use
+		\item 
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example 1: ProjectQ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
 	
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
+\subsection{Example 2: Rigetti Forest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\insertsection}{\insertsubsection}
 	
 \end{frame}
 
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	
-\end{frame}
-
+\section{High-level programming}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
+\subsection{Example 1: QCL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	\begin{itemize}
+		\item first release in 1998!, last in 2014 (\url{http://tph.tuwien.ac.at/~oemer/qcl.html})
+		\item architecture independent programming language for quantum computers
+		\item quantum operators and quantum functions
+		\item 
+	\end{itemize}
 	
 \end{frame}
 
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+	
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	
-\end{frame}
-
+\section{Where are quantum computers?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	
+\begin{frame}{\insertsection}
+	\begin{itemize}
+		\item D-Wave (GOTO: Andy Mason and Sheir Yarkoni, Tutorial on 
+		programming the D-Wave system) 
+		\item IBM (GOTO: Ram Du\v{s}i\'c Hren, IBM Q Experience: Hands-on 
+		workshop)
+		\item Rigetti (Quil language embedded in Python)
+		\item ProjectQ -- various back-ends: simulator, resource counter, 
+		hardware (IBM Q Experience)
+	\end{itemize}
 \end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-	
-\end{frame}
-
-
-
-
 
 
 \end{document}
