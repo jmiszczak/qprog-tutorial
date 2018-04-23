@@ -3,10 +3,13 @@
 
 % diagrams
 \usepackage{tikz}
+%\usepackage{hyperref}
 \usetikzlibrary{shapes,arrows}
 
+%\usepackage[english]{babel}
+\usepackage[autostyle=true]{csquotes}
 
-\title{Introduction to quantum programming}
+\title[A]{Introduction to quantum programming}
 \author{Jaros\l aw Miszczak\\ IITiS PAN, Gliwice}
 \date{April 27, 2018\\ QIPLSIGML---Machine Learning meets Quantum Computation}
 
@@ -17,52 +20,127 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-%  \tableofcontents[hideallsubsections]
-    \tableofcontents
+    
+  \tableofcontents[hideallsubsections]
+%  \tableofcontents
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{How to use quantum computers?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quantum programming?}
+\section{Our goals}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+    \begin{itemize}
+        \item<1-> Introduce different approaches to quantum programming.
+        \item<2-> Understand the difference between quantum and classical 
+        programming.
+        \item<3-> Write some code.\\ 
+        \only<1-3>{\phantom{\dots because \emph{Talk is cheap. 
+                Show me the code.}}}
+        \only<4>{\dots because \emph{Talk is cheap. 
+        Show me quantum code.}}
+    \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quantum programming}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{What is quantum programming?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+    
+\emph{Quantum programming is a process that leads from an 
+original formulation of a computing problem to executable quantum computer 
+programs.}
+\end{frame}
+
+
+\begin{frame}{\insertsection}{\insertsubsection}
+
+\begin{itemize}
+%    \item<1-> \emph{Quantum programming is a process that leads from an 
+%    original formulation of a computing problem to executable quantum computer 
+%    programs.}
+%    \item<2-> \emph{The act of incorporating such instruction sequences
+%    into "recipes" representing certain classes of computational processes is
+%    called quantum programming.}
+    \item<1-> \emph{The process of preparing programs for a quantum computer is 
+    especially attractive because it not only can be economically and 
+    scientifically rewarding, it can also be an aesthetic experience much like 
+    composing poetry or music.}
+    \item<2-> \emph{The only way to learn a new quantum programming language is 
+    by writing programs in it.}
+    \item<3-> \emph{Only the modern quantum computer has made quantum 
+    programming both challenging and relevant.}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Why bother?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+	\begin{itemize}
+        \item<1-> Play with (finite-dimensional) quantum mechanics.
+        \item<2-> Access and use real quantum computers.
+        \item<3-> Stretch your imagination by creating new quantum programming 
+        language.
+    \end{itemize}
 	
 \end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{How to use quantum computers?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
 
   \begin{itemize}
-    \item Level 0: Direct usage of quantum gates
-        \begin{itemize}
-            \item Visual manipulation of gates and circuits
-            \item Multiplication of matrices and vectors 
-        \end{itemize}
-    \item Level 1: Direct programming of QRAM 
+    \item<-1> Level 0: Direct usage of quantum gates
+%        \begin{itemize}
+%            \item Visual manipulation of gates and circuits
+%            \item Multiplication of matrices and vectors 
+%        \end{itemize}
+    \item<2-> Level 1: Direct programming of QRAM 
 %    Embedded language with data abstraction and classical 
 %    control of quantum memory
-    \item Level 2: Domain specific language with data and function abstraction
-        \begin{itemize}
-            \item QCL \url{http://tph.tuwien.ac.at/~oemer/qcl.html}
-            \item LanQ \url{http://lanq.sourceforge.net/}
-            \item QML ()
-        \end{itemize}
+    \item<3-> Level 2: Domain specific language with data and function 
+    abstraction
+%        \begin{itemize}
+%            \item QCL \url{http://tph.tuwien.ac.at/~oemer/qcl.html}
+%            \item LanQ \url{http://lanq.sourceforge.net/}
+%            \item QPL anc cQPL (\url{https://arxiv.org/abs/quant-ph/0511145})
+%        \end{itemize}
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Direct usage of quantum gates}
+\subsection{Direct usage of quantum gates}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{\insertsection}{\insertsubsection}
+\begin{block}{Level 0}
+    Direct usage of quantum gates
+\end{block}
+\begin{itemize}
+    \item Visual manipulation of gates and circuits
+    \item Multiplication of matrices and vectors 
+\end{itemize}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quantum machine code}
+%\subsection{Quantum machine code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{itemize}
@@ -97,11 +175,15 @@
 \subsection{Advantages of QRAM}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
 \begin{itemize}
-	\item data abstraction $\equiv$ allocation of quantum memory
-	\item compound quantum operations $\equiv$ functions encapsulating sequence of quantum gates or quantum primitives
-	\item classical control of quantum operations 
+	\item<1-> data abstraction \only<2->{$\equiv$ allocation of quantum memory}
+	\item<3-> compound quantum operations \only<1-3>{\phantom{$\equiv$ 
+	functions encapsulating sequence of quantum gates or quantum primitives}}%
+    \only<4->{$\equiv$ functions encapsulating sequence of quantum gates or 
+    quantum primitives}
+	\item<5-> classical control of quantum operations
+    \only<1-5>{\phantom{$\equiv$ loops, ifs etc. mixed with quantum code}}%
+    \only<6->{$\equiv$ loops, ifs etc. mixed with quantum code}
 \end{itemize}
 
 \end{frame}
@@ -111,9 +193,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-\centering
+    
+\begin{center}
 \begin{tikzpicture}[node distance = 3cm, auto]
-
 \tikzstyle{block} = [rectangle, draw, text width=2.1cm, text centered, rounded 
 corners, minimum height=4em]
 \tikzstyle{example} = [draw, ellipse, node distance=2cm,  text width=1.5cm, 
@@ -137,7 +219,7 @@ text centered, minimum  height=3em]
 \path [line] (qir) -- (qoptim);
 \path [line] (qoptim) -- (qcontrol);
 \end{tikzpicture}
-
+\end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,7 +227,7 @@ text centered, minimum  height=3em]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Typical approach}
+\subsection{Quantum middelware}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
 	\begin{itemize}
@@ -163,8 +245,8 @@ text centered, minimum  height=3em]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
 	\begin{itemize}
-        \item easy to learn and use
-		\item auto-magic quantum memory management
+        \item<1-> easy to learn and use
+		\item<2-> auto-magic quantum memory management
 	\end{itemize}
 \end{frame}
 
@@ -174,6 +256,7 @@ text centered, minimum  height=3em]
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{itemize}
         \item very similar to low-level code
+        \item lack of expressibility
     \end{itemize}
 \end{frame}
 
@@ -186,8 +269,8 @@ text centered, minimum  height=3em]
         \item Python library developed by ETH (\url{https://projectq.ch/})
         \item offers various targets
         \begin{itemize}
-            \item hardware (IBM)
-            \item resource counter
+            \item hardware (IBM Q Experience)
+            \item resource counter (???)
             \item graphical circuit representation
         \end{itemize}
     \end{itemize}
@@ -236,8 +319,27 @@ text centered, minimum  height=3em]
 \section{High-level programming}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Example 1: QCL}
+\subsection{Domain specific languages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\insertsection}{\insertsubsection}
+    
+\begin{block}{Level 2}
+Domain specific language with data and function abstraction
+\end{block}
+
+\begin{itemize}
+    \item QCL (\url{http://tph.tuwien.ac.at/~oemer/qcl.html})
+    \item LanQ (\url{http://lanq.sourceforge.net/})
+    \item QPL anc cQPL (\url{https://arxiv.org/abs/quant-ph/0511145})
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example 1: QCL -- focus on quantum computing}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\insertsection}{\insertsubsection}
@@ -246,7 +348,7 @@ text centered, minimum  height=3em]
 		(\url{http://tph.tuwien.ac.at/~oemer/qcl.html})
 		\item architecture independent programming language for quantum computers
 		\item quantum operators and quantum functions
-		\item quantum-conditions
+		\item quantum conditions
 	\end{itemize}
 	
 \end{frame}
@@ -264,6 +366,26 @@ text centered, minimum  height=3em]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
 	
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example 2: cQPL -- focus on quantum communication}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -290,6 +412,7 @@ text centered, minimum  height=3em]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}
     \begin{center}
+        \Huge {\color{iitis-orange} \insertsection}\\[12pt]
         \LARGE Thank you.
     \end{center}
 \end{frame}
