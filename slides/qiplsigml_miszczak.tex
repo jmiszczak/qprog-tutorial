@@ -31,14 +31,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{itemize}
-        \item<1-> Introduce different approaches to quantum programming.
-        \item<2-> Understand the difference between quantum and classical 
+        \item<1-> Understand the difference between quantum and classical 
         programming.
+        \item<2-> Introduce different approaches to quantum programming.
         \item<3-> Write some code.\\ 
         \only<1-3>{\phantom{\dots because \emph{Talk is cheap. 
                 Show me the code.}}}
-        \only<4>{\dots because \emph{Talk is cheap. 
-        Show me quantum code.}}
+        \only<4>{($\equiv$ \emph{Talk is cheap. 
+        Show me the quantum code.})}
     \end{itemize}
 \end{frame}
 
@@ -67,17 +67,18 @@ programs.}
 \begin{frame}{\insertsection}{\insertsubsection}
 
 \begin{itemize}
+    
+    \item<1-> \emph{The only way to learn a new quantum programming language is 
+    by writing programs in it.}
 
-    \item<1-> \emph{The process of preparing programs for a quantum computer is 
+    \item<2-> \emph{The process of preparing programs for a quantum computer is 
     especially attractive because it not only can be economically and 
     scientifically rewarding, it can also be an aesthetic experience much like 
     composing poetry or music.}
 
-    \item<2-> \emph{The only way to learn a new quantum programming language is 
-    by writing programs in it.}
-
     \item<3-> \emph{Only the modern quantum computer has made quantum 
     programming both challenging and relevant.}
+
 \end{itemize}
 \end{frame}
 
@@ -87,6 +88,7 @@ programs.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
+    
 	\begin{itemize}
         \item<1-> Play with quantum mechanics.
         \item<2-> Access and use real quantum computers.
@@ -97,38 +99,35 @@ programs.}
 	
 \end{frame}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{How to use quantum computers?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
 
   \begin{itemize}
     \item<1-> Level 0: Manipulation of quantum gates.
-%        \begin{itemize}
-%            \item Visual manipulation of gates and circuits
-%            \item Multiplication of matrices and vectors 
-%        \end{itemize}
-    \item<2-> Level 1: Programming QRAM.
-%    Embedded language with data abstraction and classical 
-%    control of quantum memory
-    \item<3-> Level 2: High-level programming 
-%    Domain specific language with data and function 
-%    abstraction.
-%        \begin{itemize}
-%            \item QCL \url{http://tph.tuwien.ac.at/~oemer/qcl.html}
-%            \item LanQ \url{http://lanq.sourceforge.net/}
-%            \item QPL anc cQPL (\url{https://arxiv.org/abs/quant-ph/0511145})
-%        \end{itemize}
+    \only<article>{(Visual manipulation of gates and circuits or multiplication 
+    of matrices and vectors)}
+
+    \item<2-> Level 1: Programming QRAM. \only<article>{(Embedded language 
+    with data abstraction and classical control of quantum memory)}
+
+    \item<3-> Level 2: High-level programming. \only<article>{(Domain specific 
+    language with data and function abstraction.)}
   \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Direct usage of quantum gates}
+\section{Manipulation of quantum gates}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \begin{center}
+        {\color{iitis-orange} \LARGE \insertsection}
+    \end{center}
+\end{frame}
 
 \begin{frame}{\insertsection}{\insertsubsection}
 \begin{block}{Level 0}
@@ -166,6 +165,7 @@ programs.}
         \item<3-> Useful for testing small circuits.
         \item<4-> Not so much for real algorithms.
         \item<5-> You have to live with connectivity limitations (IBM Q).
+        \item<6-> But you can use a real quantum computer!
     \end{itemize}
 \end{frame}   
     
@@ -183,31 +183,54 @@ programs.}
         \item<2-> ...quantum gates are just matrices (at most $4\times 4$, and 
         don't mention the decoherence)...
         \item<3-> ...only the final step is somehow strange.
+        \item<4->{\emph{Real Programmers do Quantum Computing in FORTRAN.}}
     \end{itemize}
 
 \end{frame}
 
+\begin{frame}{\insertsection}{\insertsubsection}
+For example, in Julia... \\[12pt] \only<2->{Examples in 
+Wolfram can be found in the GitHub repo}
+\end{frame}
+
+
+\begin{frame}{\insertsection}{\insertsubsection}
+    \begin{itemize}
+        \item<1-> Actually this is almost as good as it gets!
+        \item<2-> Because...
+        \begin{itemize}
+            \item<3->  ...you already know the language.
+            \item<4-> ...it is very is to use it to implement 
+            classical control.
+        \end{itemize}
+        \item<5-> Important feature missing is the memory management.
+        \item<6-> And in most cases you don't need all the power/libraries/etc 
+        coming with the host language.
+    \end{itemize}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Where to go next?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{itemize}
-    \item IBM Q Experience: 
+    \item<1-> IBM Q Experience: 
     {\small\url{https://quantumexperience.ng.bluemix.net/qx/editor}}
-    \item Packages/matrix manipulation libraries:
+    \item<2-> Packages/matrix manipulation libraries:
     \begin{itemize}
-        \item quantum-octave: 
+        \item<3-> quantum-octave (Octave/Matlab): 
         {\small \url{https://github.com/ZKSI/quantum-octave}}
-        \item QuTiP: {\small\url{http://qutip.org/}}
-        \item Quipper: 
+        \item<4-> QuTiP (Python): {\small\url{http://qutip.org/}}
+        \item<5-> Quipper (Haskell): 
         {\small\url{https://www.mathstat.dal.ca/~selinger/quipper/}}
     \end{itemize}
+    \item<6-> Many more at Quantiki 
+    \url{https://quantiki.org/wiki/list-qc-simulators}
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Programming languages for QRAM}
+\section{Programming QRAM}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -357,23 +380,16 @@ text centered, minimum  height=3em]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+	\begin{itemize}
+        \item<1-> Quil $\equiv$ quantum assembly language
+        \item<2-> pyQuil $\equiv$ Python library for manipulating quantum 
+        programmes in Quill
+        \item<3-> Access to RIggeti 19Q-Acorn quantum computer
+        \item<4-> More during the third day: Adam Szady, Quantum programming 
+        with (Py)Quil
+    \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-	
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-	
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-	
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{High-level programming}
@@ -462,8 +478,8 @@ Domain specific language with data and function abstraction
 		programming the D-Wave system
 		\item \textbf{IF} IBM \textbf{GOTO} Ram Du\v{s}i\'c Hren, IBM Q 
 		Experience: Hands-on workshop
-		\item \textbf{IF} Rigetti \textbf{GOTO}  Adam Szady,  Rigetti Computing 
-		PyQuil library
+		\item \textbf{IF} Rigetti \textbf{GOTO} Adam Szady, Quantum programming 
+		with (Py)Quil
 		\item ProjectQ -- various back-ends: simulator, resource counter, 
 		hardware (at the moment targeting IBM Q Experience)
 	\end{itemize}
@@ -476,7 +492,7 @@ Domain specific language with data and function abstraction
 \begin{frame}{\insertsection}
     \begin{center}
         \Huge {\color{iitis-orange} \insertsection}\\[12pt]
-        \LARGE Thank you.\\[12pt]
+%        \LARGE Thank you.\\[12pt]
         \large \url{https://github.com/jmiszczak/qprog-tutorial}
     \end{center}
 \end{frame}
