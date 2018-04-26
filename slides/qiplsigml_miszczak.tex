@@ -1,4 +1,6 @@
 \documentclass{beamer}
+%\documentclass{article}
+%\usepackage{beamerarticle}
 \usetheme{IITIS}
 
 % diagrams
@@ -7,7 +9,7 @@
 \usetikzlibrary{shapes,arrows}
 
 %\usepackage[english]{babel}
-\usepackage[autostyle=true]{csquotes}
+%\usepackage[autostyle=true]{csquotes}
 
 \title[A]{Introduction to quantum programming}
 \author{Jaros\l aw Miszczak\\ IITiS PAN, Gliwice}
@@ -29,14 +31,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
+\begin{frame}{\insertsection}
     \begin{itemize}
         \item<1-> Understand the difference between quantum and classical 
         programming.
-        \item<2-> Introduce different approaches to quantum programming.
+        \item<2-> Introduce various approaches to quantum programming.
         \item<3-> Write some code.\\ 
         \only<1-3>{\phantom{\dots because \emph{Talk is cheap. 
-                Show me the code.}}}
+                Show me the quantum code.}}}
         \only<4>{($\equiv$ \emph{Talk is cheap. 
         Show me the quantum code.})}
     \end{itemize}
@@ -100,7 +102,7 @@ programs.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{How to use quantum computers?}
+\subsection{How to do quantum programming?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -202,9 +204,11 @@ Wolfram can be found in the GitHub repo}
             \item<3->  ...you already know the language.
             \item<4-> ...it is very is to use it to implement 
             classical control.
+            \item<5-> ...it is relatively easy to take into account effects of 
+            decoherence.
         \end{itemize}
-        \item<5-> Important feature missing is the memory management.
-        \item<6-> And in most cases you don't need all the power/libraries/etc 
+        \item<6-> Important feature missing is the memory management.
+        \item<7-> And in most cases you don't need all the power/libraries/etc 
         coming with the host language.
     \end{itemize}
 \end{frame}
@@ -220,9 +224,7 @@ Wolfram can be found in the GitHub repo}
     \begin{itemize}
         \item<3-> quantum-octave (Octave/Matlab): 
         {\small \url{https://github.com/ZKSI/quantum-octave}}
-        \item<4-> QuTiP (Python): {\small\url{http://qutip.org/}}
-        \item<5-> Quipper (Haskell): 
-        {\small\url{https://www.mathstat.dal.ca/~selinger/quipper/}}
+        \item<4-> QuTiP (Python library): {\small\url{http://qutip.org/}}
     \end{itemize}
     \item<6-> Many more at Quantiki 
     \url{https://quantiki.org/wiki/list-qc-simulators}
@@ -309,7 +311,7 @@ text centered, minimum  height=3em]
 \begin{frame}{\insertsection}{\insertsubsection}
 	\begin{itemize}
 		\item embedded domain specific language $\rightarrow$ 
-		C/Python/Wolfram 
+		C/Python/Wolfram/Haskell
 		with library of functions
 		\item data abstraction $\rightarrow$ allocation of classical and quantum registers based on qu(b$|$d)its
 		\item quantum functions $\rightarrow$ custom elementary gates defined by matrices or compound statements
@@ -405,10 +407,6 @@ Some examples...
     \end{center}
 \end{frame}
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Example 2: Rigetti Forest and pyQuil}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -444,6 +442,7 @@ Domain specific language with data and function abstraction
     \item QCL (\url{http://tph.tuwien.ac.at/~oemer/qcl.html})
     \item LanQ (\url{http://lanq.sourceforge.net/})
     \item QPL anc cQPL (\url{https://arxiv.org/abs/quant-ph/0511145})
+    \item Scaffold (\url{https://github.com/epiqc/ScaffCC})
 \end{itemize}
 \end{frame}
 
@@ -458,47 +457,90 @@ Domain specific language with data and function abstraction
 		(\url{http://tph.tuwien.ac.at/~oemer/qcl.html}).
 		\item<2-> Architecture independent programming language for quantum 
 		computers.
-		\item<3-> Quantum operators and quantum functions
-		\item<4-> Quantum conditions.
+
 	\end{itemize}
 	
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+    Features
+    \begin{itemize}
+        \item<1-> Syntax for reversibility (uncomputing).
+        \item<2-> Different types of quantum memory for better optimization.
+        \item<3-> Quantum conditions --- quantum-controlled execution 
+        (generalization of controlled 
+        gates).
+        \item<4-> Various types of compound statements (related with memory 
+        management): quantum operators, quantum functions, procedures.
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+    Advanced quantum memeory management using types
+    \begin{itemize}
+        \item<1-> \texttt{qureg} ---  basic type for quantum registers
+        \item<2-> \texttt{quconst} --- cannot be modified
+        \item<3-> \texttt{quvoid} --- has to be empty after the call
+        \item<4-> \texttt{quscratch} --- has to be empty before and after the 
+        call
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\insertsection}{\insertsubsection}
+    Types of quantum functions
+    \begin{itemize}
+        \item<1-> \texttt{procedure} ---  classically controlled quantum 
+        computation 
+        \item<2-> \texttt{qufunct} --- used to implement irreversible functions
+        \item<3-> \texttt{operator} --- compound quantum operations 
+        call
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+Some examples...
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-	
-\end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Example 2: cQPL -- focus on quantum communication}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
+    
     \begin{itemize}
-        \item<1-> 
+        \item<1-> QPL (theoretical) and cQPL (implementation of QPL).
+        \item<2-> Functional paradigm.
+        \item<3-> No public available implementation.
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     
+    \begin{itemize}
+        \item<1-> Syntax for creating quantum communication channels by sharing 
+        (entangles) qubits
+    \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-    
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{\insertsection}{\insertsubsection}
+%    \begin{itemize}
+%        \item<1-> 
+%    \end{itemize}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{\insertsection}{\insertsubsection}
+%    \begin{itemize}
+%        \item<1-> 
+%    \end{itemize}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Where are quantum computers?}

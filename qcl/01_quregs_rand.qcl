@@ -1,0 +1,9 @@
+reset;
+qureg a[1];
+int r;
+
+Not(a);
+H(a);
+measure a, r;
+print a;
+print r;

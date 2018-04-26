@@ -1,0 +1,15 @@
+// syntax for creating compound operators
+operator myEnt(qureg a) {
+  H(a[0]);
+  CNot(a[1],a[0]);
+}
+
+qureg a[2];
+
+myEnt(a);
+
+dump;
+
+!myEnt(a);
+
+dump;

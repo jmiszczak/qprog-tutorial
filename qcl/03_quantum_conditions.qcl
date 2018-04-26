@@ -1,0 +1,12 @@
+qureg a[1];
+qureg b[2];
+
+H(a);
+
+if a { 
+  Not(b[0]) ;
+  Not(b[1]) ;
+}
+
+
+dump;
