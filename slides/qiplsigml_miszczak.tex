@@ -361,17 +361,43 @@ text centered, minimum  height=3em]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+    Nice features
+    \begin{itemize}
+        \item Meta instructions for quantum-controlled quantum operations and 
+        support for reverse call
+        \only<article>{(very easy to construct controlled operations)}
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+    \begin{block}{Metainstruction \texttt{Control}}
+        Execution part of the code is based on the state of quantum register.
+    \end{block}
+
+    \begin{center}
+     \includegraphics[scale=1.5]{../projectq/meta_control_circ.pdf}
+    \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-	
+    \begin{block}{Metainstruction \texttt{Dagger}}
+        Execution part of the code is based on the state of quantum register.
+    \end{block}
+    
+    \begin{center}
+        \includegraphics[scale=1.5]{../projectq/meta_dagger_circ.pdf}
+    \end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    
 \end{frame}
 
 
@@ -384,7 +410,7 @@ text centered, minimum  height=3em]
         \item<1-> Quil $\equiv$ quantum assembly language
         \item<2-> pyQuil $\equiv$ Python library for manipulating quantum 
         programmes in Quill
-        \item<3-> Access to RIggeti 19Q-Acorn quantum computer
+        \item<3-> Access to Rigetti 19Q-Acorn quantum computer!
         \item<4-> More during the third day: Adam Szady, Quantum programming 
         with (Py)Quil
     \end{itemize}
