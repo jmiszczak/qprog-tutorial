@@ -352,21 +352,35 @@ text centered, minimum  height=3em]
         \item Python library developed by ETH (\url{https://projectq.ch/})
         \item offers various targets
         \begin{itemize}
-            \item hardware (IBM Q Experience)
+            \item hardware (IBM Q Experience) 
+            \only<article>{(\verb|use_hardware=False|)}
             \item resource counter (???)
             \item graphical circuit representation
         \end{itemize}
     \end{itemize}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+\includegraphics[width=\textwidth]{pics/projectq-compiler-overview.png}\\
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     Nice features
     \begin{itemize}
+        \item Natural (for physicist) syntax for executing quantum gates.
         \item Meta instructions for quantum-controlled quantum operations and 
         support for reverse call
         \only<article>{(very easy to construct controlled operations)}
     \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\insertsection}{\insertsubsection}
+Some examples...
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -376,29 +390,23 @@ text centered, minimum  height=3em]
     \end{block}
 
     \begin{center}
-     \includegraphics[scale=1.5]{../projectq/meta_control_circ.pdf}
+     \includegraphics[scale=1.5]{pics/meta_control_circ.pdf}
     \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{block}{Metainstruction \texttt{Dagger}}
-        Execution part of the code is based on the state of quantum register.
+        Reverse execution of the quantum code.
     \end{block}
     
     \begin{center}
-        \includegraphics[scale=1.5]{../projectq/meta_dagger_circ.pdf}
+        \includegraphics[scale=1.5]{pics/meta_dagger_circ.pdf}
     \end{center}
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    
-\end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
