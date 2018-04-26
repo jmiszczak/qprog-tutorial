@@ -11,8 +11,8 @@
 %\usepackage[english]{babel}
 %\usepackage[autostyle=true]{csquotes}
 
-\title[A]{Introduction to quantum programming}
-\author{Jaros\l aw Miszczak\\ IITiS PAN, Gliwice}
+\title[A]{Introduction to Quantum Programming}
+\author{Jaros\l aw Miszczak\\ IITiS PAN}
 \date{April 27, 2018\\ QIPLSIGML---Machine Learning meets Quantum Computation}
 
 \begin{document}
@@ -92,11 +92,11 @@ programs.}
 \begin{frame}{\insertsection}{\insertsubsection}
     
 	\begin{itemize}
-        \item<1-> Play with quantum mechanics.
-        \item<2-> Access and use real quantum computers.
-        \item<3-> Stretch your imagination by creating new programming 
+        \item<1-> Use real quantum computers. 
+        \item<2-> Play with quantum mechanics.
+        \item<3-> Stretch your imagination by creating a new programming 
         language with quantum elements...
-        \item<4->{...or language for describing quantum mechanics.}
+        \item<4->{...or a language for describing quantum mechanics.}
     \end{itemize}
 	
 \end{frame}
@@ -195,19 +195,18 @@ For example, in Julia... \\[12pt] \only<2->{Examples in
 Wolfram can be found in the GitHub repo}
 \end{frame}
 
-
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{itemize}
         \item<1-> Actually this is almost as good as it gets!
         \item<2-> Because...
         \begin{itemize}
             \item<3->  ...you already know the language.
-            \item<4-> ...it is very is to use it to implement 
+            \item<4-> ...it is very easy to implement 
             classical control.
             \item<5-> ...it is relatively easy to take into account effects of 
             decoherence.
         \end{itemize}
-        \item<6-> Important feature missing is the memory management.
+        \item<6-> Missing: the memory management.
         \item<7-> And in most cases you don't need all the power/libraries/etc 
         coming with the host language.
     \end{itemize}
@@ -226,7 +225,7 @@ Wolfram can be found in the GitHub repo}
         {\small \url{https://github.com/ZKSI/quantum-octave}}
         \item<4-> QuTiP (Python library): {\small\url{http://qutip.org/}}
     \end{itemize}
-    \item<6-> Many more at Quantiki 
+    \item<5-> Many more at Quantiki 
     \url{https://quantiki.org/wiki/list-qc-simulators}
     \end{itemize}
 \end{frame}
@@ -305,17 +304,17 @@ text centered, minimum  height=3em]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quantum middelware}
+\subsection{Quantum middleware}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\insertsection}{\insertsubsection}
 	\begin{itemize}
-		\item embedded domain specific language $\rightarrow$ 
+		\item<1-> embedded domain specific language $\rightarrow$ 
 		C/Python/Wolfram/Haskell
 		with library of functions
-		\item data abstraction $\rightarrow$ allocation of classical and quantum registers based on qu(b$|$d)its
-		\item quantum functions $\rightarrow$ custom elementary gates defined by matrices or compound statements
-		\item classical control of quantum memory $\rightarrow$ by using host language
+		\item<2-> data abstraction $\rightarrow$ allocation of classical and quantum registers based on qu(b$|$d)its
+		\item<3-> quantum functions $\rightarrow$ custom elementary gates defined by matrices or compound statements
+		\item<4-> classical control of quantum memory $\rightarrow$ by using host language
 	\end{itemize}
 \end{frame}
 
@@ -328,7 +327,7 @@ text centered, minimum  height=3em]
         the language}
 		\item<2-> auto-magic quantum memory management \only<article>{because 
 		qubits are just arrays}
-        \item<3-> integration with classical machine is for free 
+        \item<3-> integration with classical machine
         \only<article>{obviously}
 	\end{itemize}
 \end{frame}
@@ -388,7 +387,7 @@ Some examples...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
     \begin{block}{Metainstruction \texttt{Control}}
-        Execution part of the code is based on the state of quantum register.
+        Execution of the code is based on the state of quantum register.
     \end{block}
 
     \begin{center}
@@ -413,12 +412,12 @@ Some examples...
 
 \begin{frame}{\insertsection}{\insertsubsection}
 	\begin{itemize}
-        \item<1-> Quil $\equiv$ quantum assembly language
+        \item<1-> Quil $\equiv$ quantum assembly language.
         \item<2-> pyQuil $\equiv$ Python library for manipulating quantum 
-        programmes in Quill
+        programmes in Quill.
         \item<3-> Access to Rigetti 19Q-Acorn quantum computer!
         \item<4-> More during the third day: Adam Szady, Quantum programming 
-        with (Py)Quil
+        with (Py)Quil.
     \end{itemize}
 \end{frame}
 
@@ -435,7 +434,7 @@ Some examples...
 \begin{frame}{\insertsection}{\insertsubsection}
 
 \begin{block}{Level 2}
-Domain specific language with data and function abstraction
+Domain specific language with data and function abstraction.
 \end{block}
 
 \begin{itemize}
@@ -451,6 +450,7 @@ Domain specific language with data and function abstraction
 \subsection{Example 1: QCL -- focus on quantum computing}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
 	\begin{itemize}
 		\item<1-> First release in 1998, last in 2014 
@@ -477,26 +477,26 @@ Domain specific language with data and function abstraction
     \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\insertsection}{\insertsubsection}
-    Advanced quantum memeory management using types
+    Advanced quantum memory management using types:
     \begin{itemize}
-        \item<1-> \texttt{qureg} ---  basic type for quantum registers
-        \item<2-> \texttt{quconst} --- cannot be modified
-        \item<3-> \texttt{quvoid} --- has to be empty after the call
+        \item<1-> \texttt{qureg} ---  basic type for quantum registers,
+        \item<2-> \texttt{quconst} --- cannot be modified,
+        \item<3-> \texttt{quvoid} --- has to be empty before the call,
         \item<4-> \texttt{quscratch} --- has to be empty before and after the 
-        call
+        call.
     \end{itemize}
 \end{frame}
 
 
 \begin{frame}{\insertsection}{\insertsubsection}
-    Types of quantum functions
+    Types of quantum functions:
     \begin{itemize}
         \item<1-> \texttt{procedure} ---  classically controlled quantum 
-        computation 
-        \item<2-> \texttt{qufunct} --- used to implement irreversible functions
-        \item<3-> \texttt{operator} --- compound quantum operations 
-        call
+        computation,
+        \item<2-> \texttt{qufunct} --- used to implement irreversible functions,
+        \item<3-> \texttt{operator} --- compound quantum operation.
     \end{itemize}
 \end{frame}
 
@@ -513,37 +513,17 @@ Some examples...
 \begin{frame}{\insertsection}{\insertsubsection}
     
     \begin{itemize}
-        \item<1-> QPL (theoretical) and cQPL (implementation of QPL).
+        \item<1-> QPL (formal specification) and cQPL (implementation of QPL, 
+        \url{https://arxiv.org/abs/quant-ph/0511145})
         \item<2-> Functional paradigm.
-        \item<3-> No public available implementation.
+        \item<3-> No publicly available implementation.
+        \item<4-> Syntax for creating quantum communication channels by sharing 
+        (entangled) qubits.
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\insertsection}{\insertsubsection}
-    
-    \begin{itemize}
-        \item<1-> Syntax for creating quantum communication channels by sharing 
-        (entangles) qubits
-    \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}{\insertsection}{\insertsubsection}
-%    \begin{itemize}
-%        \item<1-> 
-%    \end{itemize}
-%\end{frame}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}{\insertsection}{\insertsubsection}
-%    \begin{itemize}
-%        \item<1-> 
-%    \end{itemize}
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Where are quantum computers?}
+\section{What next?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -556,8 +536,6 @@ Some examples...
 		Experience: Hands-on workshop
 		\item \textbf{IF} Rigetti \textbf{GOTO} Adam Szady, Quantum programming 
 		with (Py)Quil
-		\item ProjectQ -- various back-ends: simulator, resource counter, 
-		hardware (at the moment targeting IBM Q Experience)
 	\end{itemize}
 \end{frame}
 

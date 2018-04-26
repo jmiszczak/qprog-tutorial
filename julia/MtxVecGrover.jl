@@ -21,6 +21,8 @@ diffuse(n) = -1*(foldl(kron,id,[id for i in 1:n-1]) - 2*proj(foldl(kron,sp,[sp f
 
 # some examples
 
+groverInit(n) = foldl(kron,sp, [sp for i in 1:n-1])
+grover(n) = diffuse(n)*oracle(n)
 testGrover(n,i) = grover(n)^i*groverInit(n);
 testGrover(n) = grover(n)^Int(floor(sqrt(2^n)))*groverInit(n);
 testGroverProbs(n,i) = map(x->abs(x)^2, testGrover(n,i));

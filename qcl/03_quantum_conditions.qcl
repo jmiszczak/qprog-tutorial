@@ -3,10 +3,10 @@ qureg b[2];
 
 H(a);
 
+// execution controlled by state of a
 if a { 
   Not(b[0]) ;
   Not(b[1]) ;
 }
-
 
 dump;

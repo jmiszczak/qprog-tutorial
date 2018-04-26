@@ -10,6 +10,7 @@ myEnt(a);
 
 dump;
 
+// reverse call
 !myEnt(a);
 
 dump;
