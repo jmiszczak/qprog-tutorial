@@ -1,6 +1,9 @@
 % 21/08/2018 - v.0.01 - first part of the material
+% 21/01/2019 -  v0.02 - some update
 \documentclass[a4paper,11pt]{article}
+
 \usepackage{fullpage}
+
 \usepackage{graphicx}
 \usepackage{authblk}
 \usepackage{hyperref}
@@ -10,6 +13,8 @@
 %\usepackage{hyperref}
 \usetikzlibrary{shapes,arrows}
 
+\usepackage{xspace}
+\newcommand{\docName}{tutorial\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % used only during the manuscript preparation
@@ -24,22 +29,22 @@
 
 \begin{document}
 
-\title{Introduction to Quantum Programming\footnote{Notes from a talk given at
-QIPLSIGML---Machine Learning meets Quantum Computation, April 27, 2018,
-\url{https://qiplsigml.iitis.pl/}. Source code avilable at
-\url{https://github.com/jmiszczak/qprog-tutorial}.}}
-\author{Jaros\l aw Miszczak}
+\title{Introduction to quantum programming for near-term quantum 
+computers\footnote{Notes from a tutorial given 
+at conference QIPLSIGML---Machine Learning meets Quantum Computation, April 27, 
+2018, \url{https://qiplsigml.iitis.pl/}.}}
+\author{J.A. Miszczak}
 \affil{Institute of Theoretical and Applied Informatics, Polish Academy of 
-Sciences, Ba{\l}tycka 5, 44-100 Gliwice, Poland}
-\date{}
+Sciences\\ Ba{\l}tycka 5, 44-100 Gliwice, Poland}
+\date{23/01/2019 (v.0.02)}
 
 \maketitle
 
 \begin{abstract}
-The aim of this tutorial is to provide basic information about quantum
+The aim of this \docName is to provide basic information about quantum
 programming languages and methods of developing programs running on quantum
-computers. We demonstrate the procedural approach by presenting implementation
-of selected quantum algorithms and protocols using variouse programming
+computers. We focus on the procedural approach by presenting implementation
+of selected quantum algorithms and protocols using various programming
 languages. We review the recent software developed for accessing commercial
 quantum computers.\\[6pt]
 \textbf{Keywords:} quantum algorithms; quantum machines; programming languages
@@ -48,6 +53,28 @@ quantum computers.\\[6pt]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Recent progress in the field of quantum computation promises the increasing 
+availability of quantum computing resources in near future. During the last few 
+year new computing platforms have been developed by many 
+companies~\cite{ibm-quantumexperience}. This resulted in many intersting 
+application of the available quanum hardware~\cite{xandu-pennylane}. 
+However, to utilzied quantum computers for solving real-world problems 
+efficiently it is necessary to develop software tools---quantum programming 
+languages and compilers targeting hardware platforms---which will support the 
+development of quantum software and take into account the limitation of the 
+available hardware~\cite{chong2017programming}.
+
+Commercial availability of quantum computer induced rapid development of new 
+frameworks and programming tools required for harnessing quantum machines. 
+The goal of this \docName is to introduce basic elements utilized by quantum 
+computing frameworks developed for the purpose of programming existing and 
+near-term quantum  computers~\cite{preskill2018quantum,ibm-qiskit-aqua}. We 
+approach this topic in three steps. In the first level we demonstrate how 
+high-level quantum computing can be describe with a little help form standard 
+computer algebra tools. The basic formulation of quantum computing can be 
+generalized by developing domain-specific language emended into a general 
+purpose programming languages. Code examples discussed in this \docName are 
+available for download~\cite{qprog-tutor}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{What is quantum programming?}
@@ -486,21 +513,19 @@ Some examples...
 (entangled) qubits.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Final remarks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{What next?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\begin{itemize}
-%\item \textbf{IF} D-Wave \textbf{GOTO} Andy Mason and Sheir Yarkoni, 
-%Tutorial on 
-%programming the D-Wave system
-%\item \textbf{IF} IBM \textbf{GOTO} Ram Du\v{s}i\'c Hren, IBM Q 
-%Experience: Hands-on workshop
-%\item \textbf{IF} Rigetti \textbf{GOTO} Adam Szady, Quantum programming 
-%with (Py)Quil
-%\end{itemize}
+
+\note{Add \cite{dyakonov2018case} and information about recent contests by IBM, 
+Xandu and AirBus~\cite{airbus-challenge}}
+
+\paragraph{Acknowledgements} This work has been partially supported by COST 
+Action IC1405 and Polish National Science Centre grant number 
+2014/15/B/ST6/05204.
+
+\bibliographystyle{unsrt}
+\bibliography{qprog-tutorial}
 
 \end{document}
