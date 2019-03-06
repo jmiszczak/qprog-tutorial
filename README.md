@@ -1,9 +1,8 @@
 # qprog-tutorial
 
-Tutorial and code examples for [QIPLSIGML meeting](https://qiplsigml.iitis.pl/),
-Machine Learning meets Quantum Computation.
+Tutorial and code examples preapred for [QIPLSIGML meeting](https://qiplsigml.iitis.pl/) meeting, Machine Learning meets Quantum Computation. April 26-28, 2018, Kraków, Poland.
 
-Subdirectory `slides` contains LaTeX files for producing slides.
+Subdirectory `slides` contains LaTeX files for producing beamer slides.
 
 # Requirements
 
@@ -18,3 +17,7 @@ library.
   interpreter from [QCL web page](http://tph.tuwien.ac.at/~oemer/qcl.html).
 * For running examples in `pyquil` subdir you will need
   [PyQuil](https://github.com/rigetticomputing/pyquil).
+
+# Updates
+
+* 06/03/2019 ProjectQ examples have been updated to take into account changes in backend usage and measurement syntax.
