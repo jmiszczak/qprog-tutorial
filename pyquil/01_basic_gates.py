@@ -1,27 +1,19 @@
 from pyquil.api import QVMConnection
-from pyquil.quil import Program
+from pyquil import Program, get_qc
 from pyquil.gates import H, X, CNOT
 
-qvm = QVMConnection() # use the simulator
-cregs = [0, 1, 2] # three classical registers
+qvm = get_qc('2q-qvm')
 
-# add instructions to the program
-prog = Program()
-prog.inst(H(0))
-prog.inst(CNOT(0,1))
+p = Program()
+out = p.declare('ro', 'BIT', 2)
 
-# run/simulate
-print("Before the measurement")
-qres = qvm.wavefunction(prog)
-print(qres)
+p.inst(H(0))
 
-prog.measure(0,0)
-prog.measure(1,1)
+p.inst(CNOT(0,1))
 
-print("After the measurement")
-qres = qvm.wavefunction(prog)
-print(qres)
+p.measure(0,out[0])
 
-print("Result of the measurement")
-cres = qvm.run(prog, cregs)
-print(cres)
+exe = qvm.compile(p)
+res = qvm.run(exe)
+
+print(res)
