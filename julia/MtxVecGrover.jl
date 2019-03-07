@@ -15,13 +15,13 @@ diffuse3 = -1*(kron(id,id,id) - 2*proj(kron(sp,sp,sp)))
 
 # version for n qubits
 
-needle(n) = foldl(kron,k1,[k1 for i in 1:n-1])
-oracle(n) = foldl(kron,id,[id for i in 1:n-1]) - 2*proj(needle(n))
-diffuse(n) = -1*(foldl(kron,id,[id for i in 1:n-1]) - 2*proj(foldl(kron,sp,[sp for i in 1:n-1])))
+needle(n) = foldl(kron, [k1 for i in 1:n-1]; init=k1)
+oracle(n) = foldl(kron, [id for i in 1:n-1]; init=id) - 2*proj(needle(n))
+diffuse(n) = -1*(foldl(kron, [id for i in 1:n-1]; init=id) - 2*proj(foldl(kron, [sp for i in 1:n-1]; init=sp)))
 
 # some examples
 
-groverInit(n) = foldl(kron,sp, [sp for i in 1:n-1])
+groverInit(n) = foldl(kron, [sp for i in 1:n-1]; init=sp)
 grover(n) = diffuse(n)*oracle(n)
 testGrover(n,i) = grover(n)^i*groverInit(n);
 testGrover(n) = grover(n)^Int(floor(sqrt(2^n)))*groverInit(n);
