@@ -21,3 +21,4 @@ library.
 # Updates
 
 * 06/03/2019 ProjectQ examples have been updated to take into account changes in backend usage and measurement syntax.
+* 07/03/2019 Julia implementation of the Grover's algorithm updated for Julia 1.0. The basic examaple in pyQuil now runs on qvm.
