@@ -1,4 +1,3 @@
-from pyquil.api import QVMConnection
 from pyquil import Program, get_qc
 from pyquil.gates import H, X, CNOT
 
