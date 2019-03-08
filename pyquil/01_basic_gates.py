@@ -1,18 +1,20 @@
 from pyquil import Program, get_qc
-from pyquil.gates import H, X, CNOT
+from pyquil.gates import H, CNOT, MEASURE
 
-qvm = get_qc('2q-qvm')
+qvm = get_qc('2q-qvm')  # connect to QVM with 2 quibts
+prg = Program() # build the program
+out = prg.declare('ro', 'BIT', 2) # declare classical memeory
 
-p = Program()
-out = p.declare('ro', 'BIT', 2)
+# construct the code
+prg += H(0)
+prg += CNOT(0, 1)
+prg += MEASURE(0, out[0])
+print(prg)
 
-p.inst(H(0))
+# construct the intermediate representation
+exe = qvm.compile(prg)
+print(exe.program)
 
-p.inst(CNOT(0,1))
-
-p.measure(0,out[0])
-
-exe = qvm.compile(p)
+# run the code
 res = qvm.run(exe)
-
 print(res)
