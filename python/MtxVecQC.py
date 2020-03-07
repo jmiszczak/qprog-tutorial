@@ -25,6 +25,17 @@ k1 = ket(1,2)
 
 # some basic matrices
 
+# roots of unity
+def w(i,k,n=1):
+    return np.exp(2*np.pi*1j*i*k/n).round(12)
+
+# quantum Fourier transform
+def qft(n):
+    return 1/np.sqrt(n)*np.array([[w(i,k,n) for k in range(n)] for i in range(n)])
+
+# Hadamard gate
+h = qft(2)
+
 # not gate
 s_x = np.asarray([[0,1],[1,0]])
 
