@@ -1,4 +1,5 @@
 import numpy as np
+import functools as ft
 
 # ket vectors 
 def ket(x,d):
@@ -19,6 +20,10 @@ def cop(x):
     s = x.shape[0]
     return np.kron(proj(ket(0,s)),I(s)) + np.kron(I(s)-proj(ket(0,s)), x)
 
+# Kronecker product for lists of vectors (using reduce from functools)
+def kprod(vllist):
+    return ft.reduce(lambda x, y: np.kron(x, y), vllist)
+
 # base vectors for one qubit
 k0 = ket(0,2)
 k1 = ket(1,2)
@@ -31,7 +36,7 @@ def w(i,k,n=1):
 
 # quantum Fourier transform
 def qft(n):
-    return 1/np.sqrt(n)*np.array([[w(i,k,n) for k in range(n)] for i in range(n)])
+    return 1/np.sqrt(n)*np.array([[w(i,k,n) for i in range(n)] for k in range(n)])
 
 # Hadamard gate
 h = qft(2)
