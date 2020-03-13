@@ -1,6 +1,6 @@
 # qprog-tutorial
 
-Tutorial and code examples preapred for [QIPLSIGML meeting](https://qiplsigml.iitis.pl/) meeting, Machine Learning meets Quantum Computation. April 26-28, 2018, Kraków, Poland.
+Tutorial and code examples preapred for [QIPLSIGML meeting](https://qiplsigml.iitis.pl/), Machine Learning meets Quantum Computation. April 26-28, 2018, Kraków, Poland.
 
 Subdirectory `slides` contains LaTeX files for producing beamer slides.
 
